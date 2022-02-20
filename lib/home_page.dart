@@ -17,9 +17,7 @@ class HomePage extends HookConsumerWidget {
     tabController.addListener(() => index.value = tabController.index);
     final qrData = ref.watch(qrProvider.notifier);
     useEffect(() {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
-        qrData.getQrs();
-      });
+      qrData.getQrs();
       return () {};
     }, []);
 
